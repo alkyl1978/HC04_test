@@ -34,8 +34,7 @@ void ResetISR(void);
 static void NmiSR(void);
 static void FaultISR(void);
 static void IntDefaultHandler(void);
-extern void uDMAIntHandler(void);
-extern void uDMAErrorHandler(void);
+
 //*****************************************************************************
 //
 // The entry point for the application.
@@ -120,8 +119,8 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // Hibernate
     IntDefaultHandler,                      // USB0
     IntDefaultHandler,                      // PWM Generator 3
-	uDMAIntHandler,                         // uDMA Software Transfer
-	uDMAErrorHandler,                       // uDMA Error
+	IntDefaultHandler,                       // uDMA Software Transfer
+	IntDefaultHandler,                       // uDMA Error
     IntDefaultHandler,                      // ADC1 Sequence 0
     IntDefaultHandler,                      // ADC1 Sequence 1
     IntDefaultHandler,                      // ADC1 Sequence 2
